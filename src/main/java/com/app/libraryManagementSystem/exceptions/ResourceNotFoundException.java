@@ -1,6 +1,6 @@
 package com.app.libraryManagementSystem.exceptions;
 
-import org.springframework.http.HttpStatus; // Ensure this is imported
+import org.springframework.http.HttpStatus; 
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ResponseStatus(HttpStatus.NOT_FOUND) // Maps exception to a 404 response
