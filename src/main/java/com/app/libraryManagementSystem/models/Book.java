@@ -15,15 +15,18 @@ public class Book {
     private String title;
     @Column(unique = true, nullable = false)
     private String uniqueCode;
+    private String author;
+
     
 
     public Book() {
     }
 
-    public Book(Long id, String title, String uniqueCode) {
+    public Book(Long id, String title, String uniqueCode, String author) {
         this.id = id;
         this.title = title;
         this.uniqueCode = uniqueCode;
+        this.author = author;
     }
 
     public Long getId() {
@@ -42,12 +45,20 @@ public class Book {
         this.title = title;
     }
 
-    public String getuniqueCode() {
+    public String getUniqueCode() {
         return this.uniqueCode;
     }
 
-    public void setuniqueCode(String uniqueCode) {
+    public void setUniqueCode(String uniqueCode) {
         this.uniqueCode = uniqueCode;
+    }
+
+    public String getAuthor() {
+        return this.author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
     }
 
     public Book id(Long id) {
@@ -61,7 +72,12 @@ public class Book {
     }
 
     public Book uniqueCode(String uniqueCode) {
-        setuniqueCode(uniqueCode);
+        setUniqueCode(uniqueCode);
+        return this;
+    }
+
+    public Book author(String author) {
+        setAuthor(author);
         return this;
     }
 
@@ -71,9 +87,10 @@ public class Book {
         return "{" +
             " id='" + getId() + "'" +
             ", title='" + getTitle() + "'" +
-            ", unique_code='" + getuniqueCode() + "'" +
+            ", uniqueCode='" + getUniqueCode() + "'" +
+            ", author='" + getAuthor() + "'" +
             "}";
     }
-
+    
 
 }

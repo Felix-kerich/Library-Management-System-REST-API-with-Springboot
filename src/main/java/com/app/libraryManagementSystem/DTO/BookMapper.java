@@ -9,7 +9,8 @@ public class BookMapper {
         BookDTO bookDTO = new BookDTO(
         book.getId(),
         book.getTitle(),
-        book.getuniqueCode()
+        book.getUniqueCode(),
+        book.getAuthor()
         );
 
         return bookDTO;
@@ -19,7 +20,8 @@ public class BookMapper {
         Book book = new Book(
             bookDTO.getId(),
             bookDTO.getTitle(),
-            bookDTO.getUniqueCode()
+            bookDTO.getUniqueCode(),
+            bookDTO.getAuthor()
         );
 
         return book;

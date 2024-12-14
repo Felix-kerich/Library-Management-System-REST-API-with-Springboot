@@ -11,6 +11,7 @@ import com.app.libraryManagementSystem.models.Book;
 public interface BookRepository extends JpaRepository<Book, Long>{
 
     Optional<Book> findByUniqueCode(String uniqueCode);
+    
 
     void deleteByUniqueCode(String uniqueCode);
 

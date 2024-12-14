@@ -26,6 +26,12 @@ public class BookService {
     }
 
     public BookDTO addNewBook(BookDTO bookDTO){
+
+        if(bookRepository.findByUniqueCode(bookDTO.getUniqueCode()).isPresent()){
+            throw new IllegalArgumentException("the book with unique id " + bookDTO.getUniqueCode() + " Already Exist");
+        }
+
+
         Book book = BookMapper.mapTBook(bookDTO);
 
         Book savedBook = bookRepository.save(book);

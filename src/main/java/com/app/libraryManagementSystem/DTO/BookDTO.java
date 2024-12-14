@@ -12,5 +12,6 @@ public class BookDTO {
     private String title;
     @Column(unique = true, nullable = false)
     private String uniqueCode;
+    private String author;
 
 }

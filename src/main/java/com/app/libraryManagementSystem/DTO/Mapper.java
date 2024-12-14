@@ -7,9 +7,11 @@ public class Mapper {
     public static User mapToUser(UserDTO userDTO){
         User user = new User(
             userDTO.getId(),
-            userDTO.getFullName(),
             userDTO.getEmail(),
-            userDTO.getPassword()
+            userDTO.getFullName(),            
+            userDTO.getPassword(),
+            userDTO.getCreatedAt(),
+            userDTO.getUpdatedAt()
                        
 
         );
@@ -19,9 +21,11 @@ public class Mapper {
     public static UserDTO mapToUserDTO(User user){
         UserDTO userDTO = new UserDTO(
             user.getId(),
-            user.getFullName(),
             user.getEmail(),
-            user.getPassword() 
+            user.getFullName(),            
+            user.getPassword(), 
+            user.getCreatedAt(),
+            user.getUpdatedAt()
                       );
             return userDTO;
     } 

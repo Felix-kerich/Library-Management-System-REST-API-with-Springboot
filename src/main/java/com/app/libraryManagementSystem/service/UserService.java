@@ -23,15 +23,20 @@ public class UserService {
 
 
 
-    public UserDTO registerUser(UserDTO userDTO){
-
+    public UserDTO registerUser(UserDTO userDTO) {
+        // Check if the email already exists
+        userRepository.findByEmail(userDTO.getEmail()).ifPresent(existingUser -> {
+            throw new IllegalArgumentException("User with email " + userDTO.getEmail() + " already available. Use another email or login.");
+        });
+    
+        // Proceed with registration
         User user = Mapper.mapToUser(userDTO);
-
+    
         User savedUser = userRepository.save(user);
-
-
+    
         return Mapper.mapToUserDTO(savedUser);
     }
+    
 
     public List<UserDTO> getAllUsers(UserDTO userDTO){
        
